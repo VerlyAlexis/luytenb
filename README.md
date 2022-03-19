@@ -5,4 +5,4 @@ Ce petit jeu d'essai simpliste de type "god game" permet au joueur de découvrir
 
 Le joueur doit faire à la fois face aux obstacles délicats intrinsèques à l'apparition de la vie, mais aussi aux évènements aléatoires pouvant chambouler son plan de jeu.
 
-Le joueur peut aussi jouer avec différents paquets de cartes et créer ses propres cartes et ainsi de pouvoir customiser son expérience de jeu et prolonger la rejouabilité de celui-ci.
+Le joueur peut aussi jouer avec différents paquets de cartes et créer ses propres cartes pour ainsi avoir la possibilité de customiser son expérience de jeu et prolonger la rejouabilité de celui-ci.
