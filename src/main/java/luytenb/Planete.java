@@ -1,5 +1,7 @@
 package luytenb;
 
+import java.util.ArrayList;
+
 public class Planete {
 	
 	String nom;
@@ -14,117 +16,47 @@ public class Planete {
 	int illumination;
 	
 	float temperature;
-	int compEau;
-	int compOxygene;
-	int compCarbone;
+	float compEau;
+	float compOxygene;
+	float compCarbone;
 	float ressourcesUtilisees;
 	
+public ArrayList<String> statutsPlanete = new ArrayList<String>();
 	
 	// getters & setters
-	public String getNom() {
-		return nom;
-	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public int getTemps() {
-		return temps;
-	}
-
-	public void setTemps(int temps) {
-		this.temps = temps;
-	}
-
-	public int getStage() {
-		return stage;
-	}
-
-	public void setStage(int stage) {
-		this.stage = stage;
-	}
-
-	public int getTaille() {
-		return taille;
-	}
-
-	public void setTaille(int taille) {
-		this.taille = taille;
-	}
-
-	public String getGravite() {
-		return gravite;
-	}
-
-	public void setGravite(String gravite) {
-		this.gravite = gravite;
-	}
-
-	public int getSatellites() {
-		return satellites;
-	}
-
-	public void setSatellites(int satellites) {
-		this.satellites = satellites;
-	}
-
-	public int getIllumination() {
-		return illumination;
-	}
-
-	public void setIllumination(int illumination) {
-		this.illumination = illumination;
-	}
-
-	public float getTemperature() {
-		return temperature;
-	}
-
-	public void setTemperature(float temperature) {
-		this.temperature = temperature;
-	}
-
-	public int getCompEau() {
-		return compEau;
-	}
-
-	public void setCompEau(int compEau) {
-		this.compEau = compEau;
-	}
-
-	public int getCompOxygene() {
-		return compOxygene;
-	}
-
-	public void setCompOxygene(int compOxygene) {
-		this.compOxygene = compOxygene;
-	}
-
-	public int getCompCarbone() {
-		return compCarbone;
-	}
-
-	public void setCompCarbone(int compCarbone) {
-		this.compCarbone = compCarbone;
-	}
-
-	public float getRessourcesUtilisees() {
-		return ressourcesUtilisees;
-	}
-
-	public void setRessourcesUtilisees(float ressourcesUtilisees) {
-		this.ressourcesUtilisees = ressourcesUtilisees;
+	public ArrayList<String> getStatutsPlanete() {
+		return this.statutsPlanete;
 	}
 	
-	
+	public void ajouterStatut(String statut) {
+		this.getStatutsPlanete().add(statut);
+	}
+		
 	
 	public Planete(String nom, int taille, int satellites, int illumination) { 		
 		this.setNom(nom);
 		this.setTaille(taille);
 		this.setSatellites(satellites);
 		this.setIllumination(illumination);
+		
+		// Ces valeurs sont les mêmes pour toutes les planètes
+		this.setTemperature(150);
+		this.setCompEau(20);
+		this.setCompCarbone(80);
+		this.setCompOxygene(0);
+		this.setRessourcesUtilisees(0);
 	}
 	
-	
+	public void btn_ActiviteVolcanique() {
+		this.modifyTemperature(+10);
+		this.modifyRessourcesUtilisees(-10);
+		this.modifyCompCarbone(+10);
+		// Chance d'avoir un hiver volcanique
+		double TempoNombre = Math.floor(Math.random()*(this.getCompCarbone()));
+		int NombreFinal = (int) TempoNombre;
+		//if(NombreFinal > 50) {
+		//	this.addPlaneteStatus("Hiver Volcanique");
+		//}
+	}
 }

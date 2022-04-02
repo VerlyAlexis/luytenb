@@ -8,9 +8,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.github.cliftonlabs.json_simple.JsonArray;
-import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsoner;
+import org.json.simple.JSONObject;
+
 
 public class Carte {
 	
@@ -18,23 +17,24 @@ public class Carte {
 	String iconeSrc;
 	String desc;
 	
+	
+	@SuppressWarnings("unchecked")
 	public void creerCarte(String nom, String iconName, String desc) {
 		
 		BufferedWriter writer = null;
 		try {
 			writer = Files.newBufferedWriter(Paths.get(".//data//" + nom + ".json"));
 
-			JsonObject carte = new JsonObject();
+			JSONObject carte = new JSONObject();
 			carte.put("nom", nom);
 			carte.put("iconSrc", iconName);
 			carte.put("desc", desc);
-			Jsoner.serialize(carte, writer);
 
-			writer.close();
-
+			writer.write(carte.toJSONString());
+			
 		} 
-		catch (IOException ex) {
-			ex.printStackTrace();
+		catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		finally {
@@ -47,7 +47,6 @@ public class Carte {
 				}
 			}
         }
-		
 		
 	}
 }
