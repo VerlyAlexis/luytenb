@@ -118,8 +118,12 @@ public class FenetreChoixPlanetes {
 	}
 
 	private class SwingAction extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction() {
-			putValue(NAME, "SwingAction");
+			putValue(NAME, "Luyten b");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
@@ -129,8 +133,12 @@ public class FenetreChoixPlanetes {
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_1() {
-			putValue(NAME, "SwingAction_1");
+			putValue(NAME, "TRAPPIST-1 d");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
@@ -140,8 +148,12 @@ public class FenetreChoixPlanetes {
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_2() {
-			putValue(NAME, "SwingAction_2");
+			putValue(NAME, "GJ 3323 b");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
@@ -151,8 +163,12 @@ public class FenetreChoixPlanetes {
 		}
 	}
 	private class SwingAction_3 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_3() {
-			putValue(NAME, "SwingAction_3");
+			putValue(NAME, "Kepler-438 b");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {

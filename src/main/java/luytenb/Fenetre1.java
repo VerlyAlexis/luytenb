@@ -17,7 +17,9 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -26,11 +28,9 @@ import java.nio.file.Paths;
 
 import javax.swing.Action;
 import javax.swing.SwingConstants;
-import java.awt.GridBagLayout;
-import java.awt.CardLayout;
-import javax.swing.SpringLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Fenetre1 {
 
@@ -43,6 +43,7 @@ public class Fenetre1 {
 	private final Action action_5 = new SwingAction_5();
 	private final Action action_6 = new SwingAction_6();
 	private final Action action_7 = new SwingAction_7();
+	private final Action action_8 = new SwingAction_8();
 
 	/**
 	 * Launch the application.
@@ -135,20 +136,24 @@ public class Fenetre1 {
 		tempo = lireFichierPlanete("ressourcesUtilisees");
 		JLabel lblNewLabel_5 = new JLabel("Ressources Consommables Utilisées : " + tempo);
 		
+		JButton btnNewButton_8 = new JButton("Recommencer une partie");
+		btnNewButton_8.setAction(action_8);
+		
 		
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addGap(192)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(lblNewLabel_5, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-						.addGroup(Alignment.LEADING, gl_panel_1.createParallelGroup(Alignment.TRAILING, false)
-							.addComponent(lblNewLabel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lblNewLabel_4, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lblNewLabel_3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
-					.addContainerGap(587, Short.MAX_VALUE))
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_3, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 499, Short.MAX_VALUE)
+					.addComponent(btnNewButton_8)
+					.addGap(252))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -160,7 +165,9 @@ public class Fenetre1 {
 					.addGap(18)
 					.addComponent(lblNewLabel_3)
 					.addGap(18)
-					.addComponent(lblNewLabel_4)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_4)
+						.addComponent(btnNewButton_8))
 					.addGap(18)
 					.addComponent(lblNewLabel_5)
 					.addContainerGap(102, Short.MAX_VALUE))
@@ -170,6 +177,10 @@ public class Fenetre1 {
 	}
 	
 	private class SwingAction extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction() {
 			putValue(NAME, "Activité Volcanique");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -179,6 +190,10 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_1() {
 			putValue(NAME, "Météorite");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -188,6 +203,10 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_2() {
 			putValue(NAME, "Déplacement des Pôles");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -197,6 +216,10 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_3 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_3() {
 			putValue(NAME, "Radioactivité");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -206,6 +229,10 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_4 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_4() {
 			putValue(NAME, "Produire des Ressources");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -215,6 +242,10 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_5 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_5() {
 			putValue(NAME, "Stabiliser l'Orbite");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -224,6 +255,10 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_6 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_6() {
 			putValue(NAME, "Réchauffer la Planète");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -233,12 +268,31 @@ public class Fenetre1 {
 		}
 	}
 	private class SwingAction_7 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_7() {
 			putValue(NAME, "Refroidir la Planète");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
 			btn_RechaufferLaPlanete();
+		}
+	}
+	private class SwingAction_8 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		public SwingAction_8() {
+			putValue(NAME, "Quitter la partie et effacer les données");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			File fichierReset = new File(".//data//" + "PlaneteData" + ".json");
+			fichierReset.delete();
+			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 		}
 	}
 	
@@ -301,7 +355,7 @@ public class Fenetre1 {
 		ecrireFichierPlanete("ressourcesUtilisees", +5);
 	}
 
-	public double lireFichierPlanete(String ParametreChoisi) {
+	public static double lireFichierPlanete(String ParametreChoisi) {
 		Reader reader = null;
 		JSONObject planetedata = null;
 		double donneeDeSortie = 0;

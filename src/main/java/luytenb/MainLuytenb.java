@@ -1,10 +1,18 @@
 package luytenb;
 
+import java.io.File;
+
 public class MainLuytenb {
 	
 	public static void main(String[] args) {
 		
-		FenetreChoixPlanetes.mainChoixPlanete(null);
+		File f = new File(".//data//" + "PlaneteData" + ".json");
+		if(f.exists() && !f.isDirectory()) { 
+			Fenetre1.mainFenetre(null);
+		}
+		else {
+			FenetreChoixPlanetes.mainChoixPlanete(null);
+		}
 		
 		//Carte carteTest = new Carte();
 		//carteTest.creerCarte("TestNom2", "TestIconSrc", "Testdesc");
