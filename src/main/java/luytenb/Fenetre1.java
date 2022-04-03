@@ -44,6 +44,8 @@ public class Fenetre1 {
 	private final Action action_6 = new SwingAction_6();
 	private final Action action_7 = new SwingAction_7();
 	private final Action action_8 = new SwingAction_8();
+	
+	public static int allThreadsRunning = 1;
 
 	/**
 	 * Launch the application.
@@ -306,7 +308,9 @@ public class Fenetre1 {
 		}
 		public void actionPerformed(ActionEvent e) {
 			File fichierReset = new File(".//data//" + "PlaneteData" + ".json");
+			allThreadsRunning = 0;
 			fichierReset.delete();
+			
 			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 		}
 	}
@@ -320,7 +324,6 @@ public class Fenetre1 {
 		}
 		ecrireFichierPlanete("compCarbone", +20);
 		ecrireFichierPlanete("compOxygene", -5);
-		System.out.println(lireFichierPlanete("temperature"));
 	}
 
 	public void btn_Meteorite() {
@@ -425,9 +428,13 @@ public class Fenetre1 {
 		
 		return PhraseDeDébut;
 	}
- 
+	
+	public static int getallThreadsRunning() {
+		return allThreadsRunning;
+	}
+	
 	@SuppressWarnings("unchecked")
-	public void ecrireFichierPlanete(String ParametreChoisi, float ValeurAffectee) {
+	public static void ecrireFichierPlanete(String ParametreChoisi, float ValeurAffectee) {
 		Reader reader = null;
 		JSONObject planetedata;
 		double temperature;

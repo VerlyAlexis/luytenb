@@ -1,5 +1,7 @@
 package luytenb;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.JLabel;
 
 public class ThreadUpdateFenetre1 implements Runnable {
@@ -12,8 +14,13 @@ public class ThreadUpdateFenetre1 implements Runnable {
 	}
 	
 	public void run() {
-		while(true) {
-			objetJLabel.setText(Fenetre1.phraseDebut(donneeAUpdate) + " " + Fenetre1.lireFichierPlanete(donneeAUpdate));
+		while(Fenetre1.getallThreadsRunning() == 1) {
+			try {
+				objetJLabel.setText(Fenetre1.phraseDebut(donneeAUpdate) + " " + Fenetre1.lireFichierPlanete(donneeAUpdate));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 }
