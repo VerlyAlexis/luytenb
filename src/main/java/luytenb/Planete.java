@@ -1,6 +1,16 @@
 package luytenb;
 
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class Planete {
 	
@@ -32,6 +42,46 @@ public ArrayList<String> statutsPlanete = new ArrayList<String>();
 	public void ajouterStatut(String statut) {
 		this.getStatutsPlanete().add(statut);
 	}
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public int getTaille() {
+		return taille;
+	}
+
+	public void setTaille(int taille) {
+		this.taille = taille;
+	}
+
+	public String getGravite() {
+		return gravite;
+	}
+
+	public void setGravite(String gravite) {
+		this.gravite = gravite;
+	}
+
+	public int getSatellites() {
+		return satellites;
+	}
+
+	public void setSatellites(int satellites) {
+		this.satellites = satellites;
+	}
+
+	public int getIllumination() {
+		return illumination;
+	}
+
+	public void setIllumination(int illumination) {
+		this.illumination = illumination;
+	}
+
 		
 	
 	public Planete(String nom, int taille, int satellites, int illumination) { 		
@@ -40,23 +90,79 @@ public ArrayList<String> statutsPlanete = new ArrayList<String>();
 		this.setSatellites(satellites);
 		this.setIllumination(illumination);
 		
-		// Ces valeurs sont les mêmes pour toutes les planètes
-		this.setTemperature(150);
-		this.setCompEau(20);
-		this.setCompCarbone(80);
-		this.setCompOxygene(0);
-		this.setRessourcesUtilisees(0);
-	}
-	
-	public void btn_ActiviteVolcanique() {
-		this.modifyTemperature(+10);
-		this.modifyRessourcesUtilisees(-10);
-		this.modifyCompCarbone(+10);
 		// Chance d'avoir un hiver volcanique
-		double TempoNombre = Math.floor(Math.random()*(this.getCompCarbone()));
-		int NombreFinal = (int) TempoNombre;
+		//double TempoNombre = Math.floor(Math.random()*(this.getCompCarbone()));
+		//int NombreFinal = (int) TempoNombre;
 		//if(NombreFinal > 50) {
 		//	this.addPlaneteStatus("Hiver Volcanique");
 		//}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void resetFichierPlanete(String PlaneteChoisie) {
+		float temperature = 0;
+		float compEau = 0;
+		float compOxygene = 0;
+		float compCarbone = 0;
+		float ressourcesUtilisees = 0;
+		if(PlaneteChoisie == "Luyten b") {
+			temperature = 10;
+			compEau = 50;
+			compOxygene = 30;
+			compCarbone = 30;
+			ressourcesUtilisees = 0;
+		}
+		if(PlaneteChoisie == "TRAPPIST-1 d") {
+			temperature = 80;
+			compEau = 10;
+			compOxygene = 0;
+			compCarbone = 100;
+			ressourcesUtilisees = 0;
+		}
+		if(PlaneteChoisie == "GJ 3323 b") {
+			temperature = -60;
+			compEau = 80;
+			compOxygene = 10;
+			compCarbone = 90;
+			ressourcesUtilisees = 40;
+		}
+		if(PlaneteChoisie == "Kepler-438 b") {
+			temperature = 250;
+			compEau = 0;
+			compOxygene = 0;
+			compCarbone = 100;
+			ressourcesUtilisees = 100;
+		}
+		BufferedWriter writer = null;
+		try {
+			writer = Files.newBufferedWriter(Paths.get(".//data//" + "PlaneteData" + ".json"));
+			
+			JSONObject data = new JSONObject();
+			
+			data.put("temperature", temperature);
+			data.put("compEau", compEau);
+			data.put("compOxygene", compOxygene);
+			data.put("compCarbone", compCarbone);
+			data.put("ressourcesUtilisees", ressourcesUtilisees);
+			
+			writer.write(data.toJSONString());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		
+		}
+		
+		
+		finally {
+			if (writer != null) {
+				try {
+					writer.close();
+				} 
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+        }
+		
 	}
 }
