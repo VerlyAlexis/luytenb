@@ -123,18 +123,33 @@ public class Fenetre1 {
 		double tempo;
 		tempo = lireFichierPlanete("temperature");
 		JLabel lblNewLabel_1 = new JLabel("Température de Surface : " + tempo);
+		ThreadUpdateFenetre1 ThreadUpdate1 = new ThreadUpdateFenetre1(lblNewLabel_1, "temperature");
+		Thread ThreadUpdate1A = new Thread(ThreadUpdate1);
+		ThreadUpdate1A.start();
 		
 		tempo = lireFichierPlanete("compEau");
 		JLabel lblNewLabel_2 = new JLabel("Composition de la surface en Eau : " + tempo);
+		ThreadUpdateFenetre1 ThreadUpdate2 = new ThreadUpdateFenetre1(lblNewLabel_2, "compEau");
+		Thread ThreadUpdate2A = new Thread(ThreadUpdate2);
+		ThreadUpdate2A.start();
 		
 		tempo = lireFichierPlanete("compOxygene");
 		JLabel lblNewLabel_3 = new JLabel("Composition de l'air en Oxygène : " + tempo);
+		ThreadUpdateFenetre1 ThreadUpdate3 = new ThreadUpdateFenetre1(lblNewLabel_3, "compOxygene");
+		Thread ThreadUpdate3A = new Thread(ThreadUpdate3);
+		ThreadUpdate3A.start();
 		
 		tempo = lireFichierPlanete("compCarbone");
 		JLabel lblNewLabel_4 = new JLabel("Compostion de l'air en Carbone : " + tempo);
+		ThreadUpdateFenetre1 ThreadUpdate4 = new ThreadUpdateFenetre1(lblNewLabel_4, "compCarbone");
+		Thread ThreadUpdate4A = new Thread(ThreadUpdate4);
+		ThreadUpdate4A.start();
 		
 		tempo = lireFichierPlanete("ressourcesUtilisees");
 		JLabel lblNewLabel_5 = new JLabel("Ressources Consommables Utilisées : " + tempo);
+		ThreadUpdateFenetre1 ThreadUpdate5 = new ThreadUpdateFenetre1(lblNewLabel_5, "ressourcesUtilisees");
+		Thread ThreadUpdate5A = new Thread(ThreadUpdate5);
+		ThreadUpdate5A.start();
 		
 		JButton btnNewButton_8 = new JButton("Recommencer une partie");
 		btnNewButton_8.setAction(action_8);
@@ -264,7 +279,7 @@ public class Fenetre1 {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
-			btn_RefroidirLaPlanete();
+			btn_RechaufferLaPlanete();
 		}
 	}
 	private class SwingAction_7 extends AbstractAction {
@@ -277,7 +292,7 @@ public class Fenetre1 {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
-			btn_RechaufferLaPlanete();
+			btn_RefroidirLaPlanete();
 		}
 	}
 	private class SwingAction_8 extends AbstractAction {
@@ -389,7 +404,28 @@ public class Fenetre1 {
 		return donneeDeSortie;
 		
 	}
-
+	
+	public static String phraseDebut(String ParametreChoisi) {
+		String PhraseDeDébut = null;
+		if(ParametreChoisi == "temperature") {
+			PhraseDeDébut = "Température de Surface :";
+		}
+		else if(ParametreChoisi == "compEau") {
+			PhraseDeDébut = "Composition de la surface en Eau :";
+		}
+		else if(ParametreChoisi == "compOxygene") {
+			PhraseDeDébut = "Composition de l'air en Oxygène :";
+		}
+		else if(ParametreChoisi == "compCarbone") {
+			PhraseDeDébut = "Composition de l'air en Carbone :";
+		}
+		else if(ParametreChoisi == "ressourcesUtilisees") {
+			PhraseDeDébut = "Ressources Consommables Utilisées :";
+		}
+		
+		return PhraseDeDébut;
+	}
+ 
 	@SuppressWarnings("unchecked")
 	public void ecrireFichierPlanete(String ParametreChoisi, float ValeurAffectee) {
 		Reader reader = null;
