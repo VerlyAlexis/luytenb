@@ -1,8 +1,5 @@
 Luyten b est le nom d'une exoplanète découverte en 2017 et possédant au moment d'écrire ces lignes le 4ème plus grand IST (Indice de Similarité avec la Terre).
 
+Ce jeu d'essai a pour but d'illustrer différentes notions essentielles au développement Java.
 
-Ce petit jeu d'essai simpliste de type "god game" permet au joueur de découvrir les difficultés rencontrées à l'établissement de la vie sur une planète habitable similaire à la terre au travers d'un jeu de stratégie et de cartes.
-
-Le joueur doit faire à la fois face aux obstacles délicats intrinsèques à l'apparition de la vie, mais aussi aux évènements aléatoires pouvant chambouler son plan de jeu.
-
-Le joueur peut aussi jouer avec différents paquets de cartes et créer ses propres cartes pour ainsi avoir la possibilité de customiser son expérience de jeu et prolonger la rejouabilité de celui-ci.
+Le projet est pour l'instant assez minimaliste, il consiste à customiser une planète et il n'y a pas de but de fin à atteindre. A terme, j'aimerai implémenter un objectif qui serait de rendre une planète habitable en appuyant sur le moins de boutons possibles, et d'enregistrer le score du joueur pour chacune des planètes. Le meilleur score serait alors le moins élevé.
