@@ -1,7 +1,5 @@
 package luytenb;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.JLabel;
 
 public class ThreadUpdateFenetre1 implements Runnable {
