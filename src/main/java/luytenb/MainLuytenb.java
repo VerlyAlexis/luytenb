@@ -1,3 +1,5 @@
+// Lien github du projet (public) : https://github.com/VerlyAlexis/luytenb
+
 package luytenb;
 
 import java.io.File;
@@ -13,17 +15,6 @@ public class MainLuytenb {
 		else {
 			FenetreChoixPlanetes.mainChoixPlanete(null);
 		}
-		
-		//Carte carteTest = new Carte();
-		//carteTest.creerCarte("TestNom2", "TestIconSrc", "Testdesc");
-		
-		//Deck deckTest = new Deck();
-		//deckTest.creerDeck("DeckDeTest2", "Deck de test2");
-		
-		//deckTest.LireNomDeck("deckDeTest2");
-		
-		//deckTest.ajouterCarteAuDeck("TestNom2", "DeckDeTest2");
-		
 		
 	}
 }
